@@ -1,7 +1,16 @@
+// const newDiv = document.createElement("div");
+// newDiv.style.color = "blue";
+// newDiv.style.cssText = "color: blue; background: black;";
+// newDiv.setAttribute("style", "color: blue; background: black");
 document.addEventListener('DOMContentLoaded', () => {
+  const container = document.querySelector("#container");
+  const content = document.createElement("div");
+  content.classList.add("content");
+  content.textContent = "This is the glorious text-content!";
+
+  container.appendChild(content);
   const gridButton = document.querySelector("#gridButton");
   const log = document.querySelector("#log");
-
   gridButton.addEventListener("click", () => {
     let min = 16;
     let max = 100;
