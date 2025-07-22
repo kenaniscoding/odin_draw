@@ -3,6 +3,15 @@
 // newDiv.style.cssText = "color: blue; background: black;";
 // newDiv.setAttribute("style", "color: blue; background: black");
 document.addEventListener('DOMContentLoaded', () => {
+  const element = document.querySelector("#box");
+  element.addEventListener("mouseover", event => {
+    console.log("Mouse in (over)");
+    element.setAttribute("style","background: blue;");
+  });
+  element.addEventListener("mouseout", event => {
+    console.log("Mouse out");
+  });
+
   const defaultGrid = 16;
   const container = document.querySelector("#container");
   const content = document.createElement("div");
