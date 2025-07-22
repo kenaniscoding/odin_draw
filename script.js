@@ -3,12 +3,14 @@
 // newDiv.style.cssText = "color: blue; background: black;";
 // newDiv.setAttribute("style", "color: blue; background: black");
 document.addEventListener('DOMContentLoaded', () => {
+  const defaultGrid = 16;
   const container = document.querySelector("#container");
   const content = document.createElement("div");
   content.classList.add("content");
   content.textContent = "This is the glorious text-content!";
-
+  content.setAttribute("style","color: white; background: black");
   container.appendChild(content);
+
   const gridButton = document.querySelector("#gridButton");
   const log = document.querySelector("#log");
   gridButton.addEventListener("click", () => {
