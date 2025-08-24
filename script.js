@@ -27,11 +27,12 @@ document.addEventListener('DOMContentLoaded', () => {
     manualDiv.appendChild(newDiv);
   }
 
-  document.appendChild(toAdd);
-
   const gridButton = document.querySelector("#gridButton");
   const log = document.querySelector("#log");
   gridButton.addEventListener("click", () => {
+    for(var i=0; i < defaultGrid; i++){
+      newDiv.remove();
+    }
     let min = 16;
     let max = 100;
     while (true){
