@@ -3,22 +3,31 @@
 // newDiv.style.cssText = "color: blue; background: black;";
 // newDiv.setAttribute("style", "color: blue; background: black");
 document.addEventListener('DOMContentLoaded', () => {
-  const element = document.querySelector("#box");
-  element.addEventListener("mouseover", event => {
-    console.log("Mouse in (over)");
-    element.setAttribute("style","background: blue;");
-  });
-  element.addEventListener("mouseout", event => {
-    console.log("Mouse out");
-  });
+  // const element = document.querySelector("#box");
+  // element.addEventListener("mouseover", event => {
+  //   console.log("Mouse in (over)");
+  //   element.setAttribute("style","background: blue;");
+  // });
+  // element.addEventListener("mouseout", event => {
+  //   console.log("Mouse out");
+  // });
 
-  const defaultGrid = 16;
+  const defaultGrid = 15;
   const container = document.querySelector("#container");
   const content = document.createElement("div");
   content.classList.add("content");
-  content.textContent = "This is the glorious text-content!";
-  content.setAttribute("style","color: white; background: black");
-  container.appendChild(content);
+  // content.textContent = "This is the glorious text-content!";
+  //content.setAttribute("style","color: white; background: black");
+  // container.appendChild(content);
+  const manualDiv = document.querySelector("#manualDiv")
+  for(var i=0; i < defaultGrid; i++){
+    var newDiv = document.createElement('div');
+    newDiv.id = 'r'+i;
+    newDiv.className = 'child';
+    manualDiv.appendChild(newDiv);
+  }
+
+  document.appendChild(toAdd);
 
   const gridButton = document.querySelector("#gridButton");
   const log = document.querySelector("#log");
@@ -30,6 +39,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const conditionTrue = (newSize <= max)&&(newSize >=min);
       if (conditionTrue){
         log.innerText = `Changed the grid to ${newSize} x ${newSize}`;
+        for (let step = 0; step < newSize; step++) {
+          content.classList.add("new");
+        }
         break;
       }  
     }
