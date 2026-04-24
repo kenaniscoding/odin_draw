@@ -12,13 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
   //   console.log("Mouse out");
   // });
 
-  const defaultGrid = 256; // or 225 = 15*15
-  const container = document.querySelector("#container");
+  const defaultGrid = 16; // or 256 = 16*16
   const content = document.createElement("div");
   content.classList.add("content");
-  // content.textContent = "This is the glorious text-content!";
-  //content.setAttribute("style","color: white; background: black");
-  // container.appendChild(content);
   const manualDiv = document.querySelector("#manualDiv")
   for(var i=0; i < defaultGrid; i++){
     var newDiv = document.createElement('div');
@@ -40,9 +36,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const conditionTrue = (newSize <= max)&&(newSize >=min);
       if (conditionTrue){
         log.innerText = `Changed the grid to ${newSize} x ${newSize}`;
-        for (let step = 0; step < newSize; step++) {
-          content.classList.add("new");
-        }
+	newArea = newSize**2 
+        // for (let step = 0; step < newSize; step++) {
+        //   content.classList.add("new");
+        // }
+	  for(var i=0; i < newArea; i++){
+	    var nwDiv = document.createElement('div');
+	    nwDiv.id = 'r'+i;
+	    nwDiv.className = 'child';
+	    manualDiv.appendChild(nwDiv);
+	  }
         break;
       }  
     }

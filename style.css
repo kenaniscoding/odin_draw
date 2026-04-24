@@ -11,9 +11,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 400px;
-  margin: 10px 0px;
-  flex-wrap: wrap;
+  /* max-width: 400px; */
+  margin: 10px 40px;
+  /* flex-wrap: wrap; */
 }
 .child {
   background-color: gray;
