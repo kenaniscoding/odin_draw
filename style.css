@@ -19,7 +19,7 @@ body {
   background-color: gray;
   border-style: solid;
   border-color: black;
-  padding: 50px;
+  padding: 9px;
 }
 .child:hover{
   background-color: white;

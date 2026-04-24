@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //   console.log("Mouse out");
   // });
 
-  const defaultGrid = 15;
+  const defaultGrid = 256; // or 225 = 15*15
   const container = document.querySelector("#container");
   const content = document.createElement("div");
   content.classList.add("content");
@@ -47,4 +47,5 @@ document.addEventListener('DOMContentLoaded', () => {
       }  
     }
  });
+
 });
