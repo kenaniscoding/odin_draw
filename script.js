@@ -36,18 +36,33 @@ document.addEventListener('DOMContentLoaded', () => {
       const conditionTrue = (newSize <= max)&&(newSize >=min);
       if (conditionTrue){
         log.innerText = `Changed the grid to ${newSize} x ${newSize}`;
-	newArea = newSize**2 
-        // for (let step = 0; step < newSize; step++) {
-        //   content.classList.add("new");
-        // }
+	newArea = newSize 
+        for (let step = 0; step < newSize; step++) {
+          content.classList.add("new");
+        }
 	  for(var i=0; i < newArea; i++){
 	    var nwDiv = document.createElement('div');
 	    nwDiv.id = 'r'+i;
 	    nwDiv.className = 'child';
 	    manualDiv.appendChild(nwDiv);
 	  }
+// function createBox(num) {
+//     let size = 960 / Math.sqrt(num)
+//     for (let index = 0; index < num; index++) {
+//         const div = document.createElement("div");
+//             div.style.width = size + "px"
+//             div.style.height = size + "px"
+//             div.classList.toggle("border")
+//             div.classList.toggle("box")
+//             div.addEventListener("mouseover", e => e.target.style.backgroundColor = "green")
+//             manualDiv.appendChild(div)
+//         }
+// }
+// createBox(newSize);
         break;
-      }  
+      }
+
+
     }
  });
 
