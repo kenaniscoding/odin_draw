@@ -1,64 +1,39 @@
-// const newDiv = document.createElement("div");
-// newDiv.style.color = "blue";
-// newDiv.style.cssText = "color: blue; background: black;";
-// newDiv.setAttribute("style", "color: blue; background: black");
 document.addEventListener('DOMContentLoaded', () => {
-  // const element = document.querySelector("#box");
-  // element.addEventListener("mouseover", event => {
-  //   console.log("Mouse in (over)");
-  //   element.setAttribute("style","background: blue;");
-  // });
-  // element.addEventListener("mouseout", event => {
-  //   console.log("Mouse out");
-  // });
-
-  const defaultGrid = 16; // or 256 = 16*16
+  const defaultGrid = 67; // or 256 = 16*16
   const content = document.createElement("div");
   content.classList.add("content");
   const manualDiv = document.querySelector("#manualDiv")
-  for(var i=0; i < defaultGrid; i++){
-    var newDiv = document.createElement('div');
-    newDiv.id = 'r'+i;
-    newDiv.className = 'child';
-    manualDiv.appendChild(newDiv);
-  }
-
   const gridButton = document.querySelector("#gridButton");
+	function createBox(num) {
+		let size = 670 / Math.sqrt(num)
+		for(var i=0; i < num; i++){
+		    var nwDiv = document.createElement('div');
+		    nwDiv.id = 'r'+i;
+		    nwDiv.className = 'child';
+		    nwDiv.style.width = size + "px"
+		    nwDiv.style.height = size + "px"
+		    nwDiv.addEventListener("mouseover", e => e.target.style.backgroundColor = "green")
+		    manualDiv.appendChild(nwDiv);
+		}
+	}
+	function deleteBox(){
+		while (manualDiv.firstChild){
+			manualDiv.removeChild(manualDiv.firstChild);
+		}      
+	}
+
+ 	createBox(defaultGrid);
   const log = document.querySelector("#log");
   gridButton.addEventListener("click", () => {
-    for(var i=0; i < defaultGrid; i++){
-      newDiv.remove();
-    }
     let min = 16;
     let max = 100;
     while (true){
       let newSize = window.prompt("Input grid min=16 and max=100: ");
       const conditionTrue = (newSize <= max)&&(newSize >=min);
       if (conditionTrue){
-        log.innerText = `Changed the grid to ${newSize} x ${newSize}`;
-	newArea = newSize 
-        for (let step = 0; step < newSize; step++) {
-          content.classList.add("new");
-        }
-	  for(var i=0; i < newArea; i++){
-	    var nwDiv = document.createElement('div');
-	    nwDiv.id = 'r'+i;
-	    nwDiv.className = 'child';
-	    manualDiv.appendChild(nwDiv);
-	  }
-// function createBox(num) {
-//     let size = 960 / Math.sqrt(num)
-//     for (let index = 0; index < num; index++) {
-//         const div = document.createElement("div");
-//             div.style.width = size + "px"
-//             div.style.height = size + "px"
-//             div.classList.toggle("border")
-//             div.classList.toggle("box")
-//             div.addEventListener("mouseover", e => e.target.style.backgroundColor = "green")
-//             manualDiv.appendChild(div)
-//         }
-// }
-// createBox(newSize);
+        log.innerText = `Changed the grid to ${newSize}`;
+	deleteBox();
+ 	createBox(newSize);
         break;
       }
 

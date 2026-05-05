@@ -9,13 +9,9 @@ body {
 
 .manualDiv {
   display: flex;
-  /* align-items: center; */
-  /* justify-content: center; */
   flex-wrap: wrap;
   width: 900px;
-  /* max-width: 400px; */
-  /* margin: 10px 40px; */
-  /* flex-wrap: wrap; */
+  isolation: isolate;
 }
 .child {
   background-color: gray;
@@ -23,6 +19,12 @@ body {
   border-color: black;
   padding: 9px;
 }
-.child:hover{
-  background-color: white;
+/* .child:hover{ */
+/*   background-color: white; */
+/* } */
+/*
+  10. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
 }
